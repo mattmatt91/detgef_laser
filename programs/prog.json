@@ -1,0 +1,22 @@
+{
+    "step1": {
+        "duration": 3,
+        "analyt": false,
+        "flow": 200
+    },
+    "step2": {
+        "duration": 3,
+        "analyt": true,
+        "flow": 200
+    },
+    "step3": {
+        "duration": 3,
+        "analyt": false,
+        "flow": 200
+    },
+    "step4": {
+        "duration": 3,
+        "analyt": true,
+        "flow": 200
+    }
+}

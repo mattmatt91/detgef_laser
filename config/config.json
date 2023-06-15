@@ -1,0 +1,18 @@
+{
+    "mfc": {
+        "hostname": "192.168.2.155",
+        "port": 502,
+        "max_flow": 200
+    },
+    "multimeter": {
+        "address1": "ASRL6::INSTR",
+        "address2": "ASRL10::INSTR"
+    },
+    "valves": {
+        "port": "COM5",
+        "pins": {
+            "valve1": 12,
+            "valve2": 11
+        }
+    }
+}
