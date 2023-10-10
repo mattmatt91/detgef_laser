@@ -1,0 +1,52 @@
+{
+    "step1": {
+        "duration": ,
+        "flow_wet": 0,
+        "flow_dry": 500
+    },
+    "step1b": {
+        "duration":600,
+        "flow_wet": 250,
+        "flow_dry": 250
+    },
+    "step2": {
+        "duration": 3600,
+        "flow_wet": 50,
+        "flow_dry": 450
+    },
+    "step2b": {
+        "duration":600,
+        "flow_wet": 0,
+        "flow_dry": 500
+    },
+    "step3": {
+        "duration": 3600,
+        "flow_wet": 100,
+        "flow_dry": 400
+    },
+    "step3b": {
+        "duration":600,
+        "flow_wet": 0,
+        "flow_dry": 500
+    },
+    "step4": {
+        "duration": 3600,
+        "flow_wet": 150,
+        "flow_dry": 350
+    },
+    "step4b": {
+        "duration":600,
+        "flow_wet": 0,
+        "flow_dry": 500
+    },
+    "step5": {
+        "duration": 3600,
+        "flow_wet": 200,
+        "flow_dry": 300
+    },
+    "step5b": {
+        "duration":600,
+        "flow_wet": 0,
+        "flow_dry": 500
+    }
+}

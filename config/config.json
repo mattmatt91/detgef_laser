@@ -1,12 +1,19 @@
 {
     "mfc": {
-        "hostname": "192.168.2.155",
-        "port": 502,
-        "max_flow": 200
+        "dry": {
+            "hostname": "192.168.2.142",
+            "port": 502,
+            "max_flow": 1000
+        },
+        "wet": {
+            "hostname": "192.168.2.141",
+            "port": 502,
+            "max_flow": 1000
+        }
     },
     "multimeter": {
-        "address1": "ASRL6::INSTR",
-        "address2": "ASRL10::INSTR"
+        "address1": "ASRL3::INSTR",
+        "address2": "ASRL4::INSTR"
     },
     "valves": {
         "port": "COM5",
