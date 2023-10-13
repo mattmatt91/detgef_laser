@@ -1,7 +1,7 @@
+from fastapi import FastAPI
 from pyModbusTCP.client import ModbusClient # Modbus TCP Client
 import struct
 import os, time
-
 
 
 def ints_to_float(arr):
@@ -29,17 +29,14 @@ def float_to_ints(flo):
     int_b = int.from_bytes(b, "big")  
     return [int_a, int_b]
 
-
-
-
 class MFC():
     def __init__(self, host, port, max_flow):#
         self.bus = ModbusClient(host=host, port=port, auto_open=True)
         time.sleep(0.2) 
         self.bus.open()
         self.max_flow = max_flow
-        self.open_valve(False)
-        self.close_valve(True)
+        # self.open_valve(False)
+        # self.close_valve(True)
         self.reset()
      
     def open_valve(self,state):
@@ -107,57 +104,34 @@ class MFC():
             print(f'Error reading mfc: {e}, returning empty dict')
             return {}
 
-    
     def close(self):
         self.close_valve(True)
         self.open_valve(False)
         self.bus.close()
+
+mfc_dry = MFC("192.168.2.141", 502, 1000)
+mfc_wet = MFC("192.168.2.142", 502, 1000) 
+# print(mfc_dry.set_point(300))
+
+
+app = FastAPI()
+
+@app.get("/get_data")
+async def read_root():
+    result = {"dry":mfc_dry.get_data(),"wet":mfc_wet.get_data()}
+    return result
+
+@app.post("/set_points")
+async def receive_json(data: dict):
+    print(data)
+    mfc_wet.set_point(data['wet'])
+    mfc_dry.set_point(data['dry'])
+    return {"Received Data": data}
+
+
+
+if __name__ == "__main__":
     
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
-
-if __name__ == '__main__':
-
-    # mfc1000 = MFC(host_1000sccm, port_1000sccm, max_flow_1000sccm)
-    mfc1 = MFC("192.168.2.141", 502, 1000)
-    mfc2 = MFC("192.168.2.142", 502, 1000)
-
-
-    
-    print(mfc2.set_point(200))
-    print(mfc2.get_point())
-    print(mfc2.get_flow_total())
-    print(mfc1.set_point(200))
-    print(mfc1.get_point())
-    print(mfc1.get_flow_total())
-
-
-
-
-    for i in range(10):
-        time.sleep(1)
-        print('point2:', mfc2.get_point())
-        print("flow2:", mfc2.get_flow())
-        print('point1:', mfc1.get_point())
-        print("flow1:", mfc1.get_flow())
-        print('\n')
-        
-    mfc1.close()
-    mfc2.close()
-
-
-
-
-
-
-
-
-
-# https://pymodbustcp.readthedocs.io/en/latest/package/module_utils.html#module-pyModbusTCP.utils
-
-# Flow Set Point write requires a 4 byte hex value input derived from a Decimal floating point value to a
-# 32 bit Hex representation based upon IEEE754 Standard for Floating Point Arithmetic.
-
-#Flow, Temperature, Valve Position, and Flow Hours when queried will return a 4 byte hex value that
-# can be converted into decimal using a 32 bit precision Hex representation to Decimal conversion
-# based upon IEEE754 Standard for Floating Point Arithmetic. Flow Total when queried returns a 4
-# byte long interger.

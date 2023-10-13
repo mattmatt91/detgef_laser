@@ -1,17 +1,17 @@
 {
     "init step": {
-        "duration": 120,
+        "duration": 18000,
         "flow_wet": 0,
-        "flow_dry": 500
-    },
-    "gas step": {
-        "duration": 60,
-        "flow_wet": 300,
         "flow_dry": 200
     },
-    "regeneration step": {
-        "duration": 900,
+    "gas step": {
+        "duration": 600,
+        "flow_wet": 200,
+        "flow_dry": 0
+    },
+    "no gas step": {
+        "duration": 18000,
         "flow_wet": 0,
-        "flow_dry": 500
+        "flow_dry": 200
     }
 }
