@@ -1,17 +1,82 @@
 {
     "init step": {
-        "duration": 18000,
+        "duration": 7200,
         "flow_wet": 0,
-        "flow_dry": 200
+        "flow_dry": 200,
+        "laser": false,
+        "power": 0,
+        "pilot": true
     },
-    "gas step": {
+    "gas no laser": {
         "duration": 600,
         "flow_wet": 200,
-        "flow_dry": 0
+        "flow_dry": 0,
+        "laser": false,
+        "power": 0,
+        "pilot": true
     },
-    "no gas step": {
-        "duration": 18000,
+    "no gas no laser regeneration": {
+        "duration": 3600,
         "flow_wet": 0,
-        "flow_dry": 200
+        "flow_dry": 200,
+        "laser": false,
+        "power": 0,
+        "pilot": true
+    },
+    "laser no gas": {
+        "duration": 3600,
+        "flow_wet": 0,
+        "flow_dry": 200,
+        "laser": true,
+        "power": 0.002,
+        "pilot": false
+    },
+    "no laser regeneration": {
+        "duration": 3600,
+        "flow_wet": 0,
+        "flow_dry": 200,
+        "laser": false,
+        "power": 0,
+        "pilot": true
+    },
+    "gas and laser": {
+        "duration": 600,
+        "flow_wet": 200,
+        "flow_dry": 0,
+        "laser": true,
+        "power": 0.002,
+        "pilot": false
+    },
+    "laser regeneration": {
+        "duration": 3600,
+        "flow_wet": 0,
+        "flow_dry": 200,
+        "laser": true,
+        "power": 0.002,
+        "pilot": false
+    },
+    "gas before laser": {
+        "duration": 600,
+        "flow_wet": 0,
+        "flow_dry": 200,
+        "laser": false,
+        "power": 0,
+        "pilot": false
+    },
+    "laser after gas regeneration": {
+        "duration": 3600,
+        "flow_wet": 0,
+        "flow_dry": 200,
+        "laser": true,
+        "power": 0.002,
+        "pilot": false
+    },
+    "final regeneration": {
+        "duration": 3600,
+        "flow_wet": 0,
+        "flow_dry": 200,
+        "laser": false,
+        "power": 0.002,
+        "pilot": true
     }
 }

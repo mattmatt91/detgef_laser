@@ -1,0 +1,19 @@
+{
+    "init step": {
+        "duration": 10,
+        "flow_wet": 0,
+        "flow_dry": 200,
+        "laser": false,
+        "power": 0,
+        "pilot": true
+    },
+    " laser": {
+        "duration": 10,
+        "flow_wet": 0,
+        "flow_dry": 200,
+        "laser": true,
+        "power": 0,
+        "pilot": true
+    
+    }
+}
