@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 from os.path import join
 import os
-from plot import make_plot as do_plot
+from plot import plot as do_plot
 import requests
 import threading
 
